@@ -66,7 +66,7 @@ This project follows a simple structure:
 | φ      | Survival rate |
 | μ      | Mortality rate |
 | prXY   | Predation rate of X on Y |
-| Proies_ | All the prey consumed by the defined species |
+| Proies_ | All the prey ("Proies" in french") consumed by the defined species |
 | r      | Intrinsic population growth |
 | ro     | Regulation (individual per time step) |
 
