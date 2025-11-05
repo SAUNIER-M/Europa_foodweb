@@ -14,7 +14,7 @@ Two species of tropicbirds (**white-tailed** and **red-tailed tropicbird**), one
 
 The latter two predators also feed on rats, creating a complex web of trophic interactions.  
 
-The aim of this study is to **reconstruct this trophic network using differential equations**, in order to:
+The aim of this study is to **build this trophic network using differential equations**, in order to:
 - Model the viability of each population  
 - Simulate the effects of conservation actions on ecosystem stability  
 
