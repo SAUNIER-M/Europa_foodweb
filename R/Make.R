@@ -50,7 +50,7 @@ yini <- c(PBJ = PBJ, JBJ1 = JBJ1, JBJ2 = JBJ2, JBJ3 = JBJ3,
 
 
 # SimulationS
-times <- seq (0, 100, by = 1) ###verifier si times = t dans la fonction
+times <- seq (0, 100, by = 1) 
 out   <- ode(y = yini, times = times, func = europa_fct, parms = parms,
              rtol = 1e-8, atol = 1e-8, maxsteps = 1e6) #Force minimum time steps to avoid crashes
 out   <- as.data.frame(out)  
@@ -66,7 +66,7 @@ tail(out$time)
 ###############################################
 
 
-png(paste0(here::here("output/", "CRIME_PREDA_ALL0.005_regCo"), ".png"), 
+png(paste0(here::here("output/", "CRIME_NO_PREDA"), ".png"), 
     width = 1000, height = 1000, units = "px")
 
 par(mar = c(27, 9, 5, 3), mgp = c(5, 2, 0))

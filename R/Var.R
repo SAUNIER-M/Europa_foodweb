@@ -85,10 +85,10 @@ muJBJ6 <- 1 - phiJBJ6
 muABJ  <- 1 - phiABJ
 
 
-prCoPBJ <- 0.005
-prRPBJ  <- 0.005
-prCHPBJ <- 0.005
-prCHABJ <- 0.005
+prCoPBJ <- 0
+prRPBJ  <- 0
+prCHPBJ <- 0
+prCHABJ <- 0
 
 
 
@@ -126,10 +126,10 @@ muJBR6 <- 1 - phiJBR6
 muABR  <- 1 - phiABR
 
 
-prCoPBR <- 0.005
-prRPBR  <- 0.005
-prCHPBR <- 0.005
-prCHABR <- 0.005
+prCoPBR <- 0
+prRPBR  <- 0
+prCHPBR <- 0
+prCHABR <- 0
 
 
   
@@ -157,7 +157,7 @@ muJCH2 <- 1 - phiJCH2
 muACH  <- 1 - phiJCH
 roCH   <- 0 
   
-prRPCH <- 0.005
+prRPCH <- 0
   
   
 ##################################################
@@ -171,7 +171,7 @@ ECo  <- 1
 GCo  <- 5
 rCo  <- aCo * GCo * BCo * ECo * Co #A VERIFIER
   
-roCo <- 100 
+roCo <- 0 
   
 ##################################################
 ###############    5. Rats rates   ###############
@@ -186,7 +186,7 @@ ER  <-  4
 rR  <- aR * GR * BR * ER * R #A VERIFIER
 roR <- 10000    
   
-prCoR <- 0.005
-prCHR <- 0.005
+prCoR <- 0
+prCHR <- 0
   
 
