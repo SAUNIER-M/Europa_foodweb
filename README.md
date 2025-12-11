@@ -91,7 +91,7 @@ This project follows a simple structure:
 - Example: `phiJBJ1` → Survival rate (`phi`) of juvenile of 1years old (J__1) of white-tailed tropicbird (`BJ`).
 
 ---
-<img width="2149" height="2063" alt="Schema_multisp2" src="https://github.com/user-attachments/assets/77241eff-3f90-4c94-a832-6d051792bc8b" />
+<img width="1149" height="1063" alt="Schema_multisp2" src="https://github.com/user-attachments/assets/77241eff-3f90-4c94-a832-6d051792bc8b" />
 Legend : Brown : Barn owl, Purple : pied crow, Blue : rats, Red : red-tailed tropicbirds, Yellow : white-tailed tropicbird. Black arrow means "eats"
 
 
