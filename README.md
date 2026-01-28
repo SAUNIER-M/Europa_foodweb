@@ -24,7 +24,7 @@ The aim of this study is to **build this trophic network using differential equa
 
 This project follows a simple structure:
 
-- output/       ➜ Model outputs and generated plots
+- output/       ➜ *Model outputs and generated plots*
 
 - R/
   
