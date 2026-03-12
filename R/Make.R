@@ -2,6 +2,7 @@ library(deSolve)
 library(here)
 
 source("R/Fct.R") 
+source("R/Var.R") 
 
 ###############################################
 ##############    Run model      ##############
@@ -23,7 +24,7 @@ parms <- c(Au, I, Pl, Sc, Tor,
            
            aCH, FCH, KCH, SRCH, ECH, GCH,
            muYCH, muJCH1, muJCH2, muACH, 
-           phiYCH, phiPCH, phiJCH1, phiJCH2, phiACH, roCH,
+           phiYCH, phiPCH, phiJCH1, phiJCH2, phiACH,
            
            aR, BR, KR, roR, ER, GR, rR,
            
@@ -38,11 +39,11 @@ parms <- c(Au, I, Pl, Sc, Tor,
 
 
 # Initial conditions
-yini <- c(PBJ = PBJ, JBJ1 = JBJ1, JBJ2 = JBJ2, JBJ3 = JBJ3,
+yini <- c(YBJ = YBJ, JBJ1 = JBJ1, JBJ2 = JBJ2, JBJ3 = JBJ3, #remplace pbj par ybj
           JBJ4 = JBJ4, JBJ5 = JBJ5, JBJ6 = JBJ6, ABJ = ABJ,
-          PBR = PBR, JBR1 = JBR1, JBR2 = JBR2, JBR3 = JBR3,
+          YBR = YBR, JBR1 = JBR1, JBR2 = JBR2, JBR3 = JBR3,
           JBR4 = JBR4, JBR5 = JBR5, JBR6 = JBR6, ABR = ABR,
-          PCH = PCH, JCH1 = JCH1, JCH2 = JCH2, ACH = ACH,
+          YCH = YCH, JCH1 = JCH1, JCH2 = JCH2, ACH = ACH,
           Co = Co, 
           R = R
 )
@@ -66,7 +67,7 @@ tail(out$time)
 ###############################################
 
 
-png(paste0(here::here("output/", "CRIME_NO_PREDA"), ".png"), 
+png(paste0(here::here("output/", "CRIME_SCENARIO1"), ".png"), 
     width = 1000, height = 1000, units = "px")
 
 par(mar = c(27, 9, 5, 3), mgp = c(5, 2, 0))
@@ -83,7 +84,7 @@ matplot(out$time, out[, vars], type = "l", lty = 1, lwd = 2,
 par(xpd = NA)
 legend(
   x = mean(out$time),
-  y = 0.00001 * min(out[out[, vars] > 0, vars], na.rm = TRUE),   #avoid 0
+  y = 0.1 * min(out[out[, vars] > 0, vars], na.rm = TRUE),   #avoid 0
   col = c("yellow3", "red", "brown", "black", "purple"),
   lty = 1, lwd = 2, cex = 2.5,
   legend = c("White-tailed tropicbirds",
