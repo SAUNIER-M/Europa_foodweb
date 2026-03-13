@@ -3,6 +3,22 @@ europa_fct <- function(t, y, parms) {
   y[y < 0] <- 0 # To avoid negative value
   eps <- 1e-6  # To avoid null denominator 
   with(as.list(c(y, parms)), { 
+    # -----------------------------
+    # Calcul dynamique des proies
+    # -----------------------------
+    
+    Proies_Co <- YBJ + JBJ1 + JBJ2 + JBJ3 + JBJ4 + JBJ5 + JBJ6 + ABJ +
+      YBR + JBR1 + JBR2 + JBR3 + JBR4 + JBR5 + JBR6 + ABR +
+      Au + I + Pl + Tor + R + eps
+    
+    Proies_Ch <- YBJ + JBJ1 + JBJ2 + JBJ3 + JBJ4 + JBJ5 + JBJ6 + ABJ +
+      YBR + JBR1 + JBR2 + JBR3 + JBR4 + JBR5 + JBR6 + ABR +
+      Au + I + Pl + Sc + R + eps
+    
+    Proies_R <- YBJ + JBJ1 + JBJ2 + JBJ3 + JBJ4 + JBJ5 + JBJ6 +
+      YBR + JBR1 + JBR2 + JBR3 + JBR4 + JBR5 + JBR6 +
+      Au + I + Pl + Sc + eps
+    
    
     # White-tailed tropibcirds
     dYBJ <- FBJ * ABJ * (1 - (ABJ / KBJ)) -
@@ -39,15 +55,14 @@ europa_fct <- function(t, y, parms) {
     dJBR5 <- phiJBR4 * JBR4 - muJBR5 * JBR5 - phiJBR5 * JBR5
     dJBR6 <- phiJBR5 * JBR5 - muJBR6 * JBR6 - phiJBR6 * JBR6
     
-    
-    
     dABR <- phiJBR6 * JBR6 - muABR * ABR -
       prCHABR * ACH * (ABR / (Proies_Ch))
     
     
     
     # Barn owls
-    dYCH <- FCH * ACH * (1 - (ACH / KCH)) - phiYCH * YCH -  muYCH * YCH -
+    dYCH <- FCH * ACH * (1 - (ACH / KCH)) -
+      phiYCH * YCH -  muYCH * YCH -
       prRPCH * R * (YCH / (Proies_R))
     
     dJCH1 <- phiYCH * YCH - muJCH1 * JCH1 - phiJCH1 * JCH1
@@ -59,13 +74,13 @@ europa_fct <- function(t, y, parms) {
     
     
     # Pied crows
-    dCO <- rCo * (1-Co/KCo) - roCo * Co
+    dCO <- rCo * Co * (1- Co / KCo) - roCo * Co
     
     
     # Rats
-    dR <- rR * (1-R/KR) - roR * R -
-          (R / (Proies_Ch)) * prCHR* ACH #* R 
-          - (R / (Proies_Co)) * prCoR * Co #* R
+    dR <- rR * R * (1 - R / KR) - roR * R -
+      prCHR * ACH * (R / (Proies_Ch)) -
+      prCoR * Co * (R / (Proies_Co)) 
     
     
     list(c(dYBJ = dYBJ, dJBJ1 = dJBJ1, dJBJ2 = dJBJ2, dJBJ3 = dJBJ3, #remplacement de DPBJ par DYBJ

@@ -57,6 +57,7 @@ out   <- ode(y = yini, times = times, func = europa_fct, parms = parms,
 out   <- as.data.frame(out)  
 
 vars  <- c("ABJ", "ABR", "ACH", "R", "Co") 
+#vars  <- c("ABJ", "ABR", "ACH",  "Co") #pas mettre les rats
 range(out$time)
 tail(out$time)
 
@@ -65,9 +66,7 @@ tail(out$time)
 ###############################################
 ################     Plot      ################
 ###############################################
-
-
-png(paste0(here::here("output/", "CRIME_SCENARIO1"), ".png"), 
+png(paste0(here::here("output/", "CRIME_SCENARIO2"), ".png"), 
     width = 1000, height = 1000, units = "px")
 
 par(mar = c(27, 9, 5, 3), mgp = c(5, 2, 0))
@@ -79,12 +78,14 @@ matplot(out$time, out[, vars], type = "l", lty = 1, lwd = 2,
         cex.main = 4,    
         cex.axis = 3,
         font.lab = 2,
-        log = "y")  #pour échelle log
+        log = "y",
+        ylim = c(1, max(out[, vars], na.rm = TRUE)))  # début axe Y à 1
 
 par(xpd = NA)
+
 legend(
   x = mean(out$time),
-  y = 0.1 * min(out[out[, vars] > 0, vars], na.rm = TRUE),   #avoid 0
+  y = 0.04,   # position adaptée à l'échelle log
   col = c("yellow3", "red", "brown", "black", "purple"),
   lty = 1, lwd = 2, cex = 2.5,
   legend = c("White-tailed tropicbirds",

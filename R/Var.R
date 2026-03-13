@@ -19,15 +19,15 @@ JBJ5 <- 30
 JBJ6 <- 25
 ABJ  <- 200
 
-PBR  <- 1600
-YBR  <- 1600
-JBR1 <- 1400
-JBR2 <- 1200
-JBR3 <- 1000
-JBR4 <- 800
-JBR5 <- 600
-JBR6 <- 500
-ABR  <- 5000
+PBR  <- 800
+YBR  <- 800
+JBR1 <- 700
+JBR2 <- 600
+JBR3 <- 500
+JBR4 <- 400
+JBR5 <- 300
+JBR6 <- 250
+ABR  <- 2000
 
 PCH  <- 40 
 YCH <- 40
@@ -35,16 +35,16 @@ JCH1 <- 20
 JCH2 <- 30
 ACH  <- 40
 
-Co   <- 1000
+Co   <- 800
 
-R    <- 1000
+R    <- 45500
 
 #Secondary species
-Au   <- 1000000
-I    <- 1000000
-Pl   <- 1000000
-Sc   <- 1000000
-Tor  <- 10000000
+Au   <- 10000
+I    <- 1000
+Pl   <- 1000
+Sc   <- 100
+Tor  <- 1000
 
 
 
@@ -54,7 +54,7 @@ Tor  <- 10000000
 #######  1. White-tailed tropicbird rates   #######
 ###################################################
 
-KBJ   <- 5000000
+KBJ   <- 50000
 
 SRBJ  <- 0.50 
 EBJ   <- 1.61 
@@ -84,10 +84,10 @@ muJBJ6 <- 1 - phiJBJ6
 muABJ  <- 1 - phiABJ
 
 
-prCoPBJ <- 0
-prRPBJ  <- 0
-prCHPBJ <- 0
-prCHABJ <- 0
+prCoPBJ <- 10
+prRPBJ  <- 20
+prCHPBJ <- 2
+prCHABJ <- 1
 
 
 
@@ -95,7 +95,7 @@ prCHABJ <- 0
 ###################################################
 ########  2. Red-tailed tropicbird rates   ########
 ###################################################
-KBR  <- 500000
+KBR  <- 50000
 
 SRBR <- 0.79 
 EBR  <- 1
@@ -125,9 +125,9 @@ muJBR6 <- 1 - phiJBR6
 muABR  <- 1 - phiABR
 
 
-prCoPBR <- 0
-prRPBR  <- 0
-prCHPBR <- 0
+prCoPBR <- 15
+prRPBR  <- 30
+prCHPBR <- 5
 prCHABR <- 0
 
 
@@ -136,7 +136,7 @@ prCHABR <- 0
 #############   3. Barn owls rates   #############
 ##################################################
 
-KCH  <- 200
+KCH  <- 400
 
 SRCH <- 1
 aCH  <- 0.5
@@ -162,39 +162,40 @@ prRPCH <- 0
 ##################################################
 #############   4. Pied crow rates  ##############
 ##################################################   
-KCo  <- 10000
+KCo  <- 100000
   
-aCo  <- 0.5
-BCo  <- 1
-ECo  <- 1 
-GCo  <- 5
-rCo  <- aCo * GCo * BCo * ECo * Co #A VERIFIER
-  
-roCo <- 0 
+#aCo  <- 0.5
+#BCo  <- 1
+#ECo  <- 1 
+#GCo  <- 5
+#rCo  <- aCo * GCo * BCo * ECo * Co #A VERIFIER
+rCo <- 3 #fixé arbitrairement  
+roCo <- 0
   
 ##################################################
 ###############    5. Rats rates   ###############
 ##################################################
 
-KR  <-  50000
+KR  <- 1000000
 
-aR  <- 0.5  
-BR  <- 1
-GR  <- 5
-ER  <-  4
-rR  <- aR * GR * BR * ER * R #A VERIFIER
-roR <- 0    
+#aR  <- 0.5  
+#BR  <- 1
+#GR  <- 5
+#ER  <-  2
+#rR  <- aR * GR * BR * ER * R #A VERIFIER
+rR <- 6  
+roR <- 0  
   
-prCoR <- 0
-prCHR <- 0
+prCoR <- 10
+prCHR <- 251 #en considérant une pelote par nuit et occurence de rat 0.69
   
 
 ##################################################
 ###############   6. Prey values   ###############
 ##################################################
 
-Proies_Co <- PBJ + PBR +  Au + I + Pl + Tor + R
-Proies_Ch <- PBJ + PBR + ABJ + Au + I + Pl + Sc + R
-Proies_R  <- PBJ + PBR + Au + I + Pl + Sc +  PCH 
+#roies_Co <- PBJ + PBR +  Au + I + Pl + Tor + R
+#Proies_Ch <- PBJ + PBR + ABJ + Au + I + Pl + Sc + R
+#Proies_R  <- PBJ + PBR + Au + I + Pl + Sc +  PCH 
 
 
