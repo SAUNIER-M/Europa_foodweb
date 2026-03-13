@@ -66,7 +66,7 @@ tail(out$time)
 ###############################################
 ################     Plot      ################
 ###############################################
-png(paste0(here::here("output/", "CRIME_SCENARIO2"), ".png"), 
+png(paste0(here::here("output/", "CRIME_CHOUETTE_phiACH0.95"), ".png"), 
     width = 1000, height = 1000, units = "px")
 
 par(mar = c(27, 9, 5, 3), mgp = c(5, 2, 0))

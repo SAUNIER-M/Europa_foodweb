@@ -35,7 +35,7 @@ JCH1 <- 20
 JCH2 <- 30
 ACH  <- 40
 
-Co   <- 800
+Co   <- 200 #800
 
 R    <- 45500
 
@@ -140,14 +140,14 @@ KCH  <- 400
 
 SRCH <- 1
 aCH  <- 0.5
-GCH  <- 6 
-ECH  <- 1.3 
+GCH  <- 8
+ECH  <- 2
 FCH  <- aCH * GCH * ECH 
 
 
-phiJCH1 <- 0.58
-phiJCH2 <- 0.58
-phiACH  <- 0.66
+phiJCH1 <- 0.60
+phiJCH2 <- phiJCH1
+phiACH  <- 0.95
 phiYCH  <- SRCH 
 
 
@@ -169,9 +169,9 @@ KCo  <- 100000
 #ECo  <- 1 
 #GCo  <- 5
 #rCo  <- aCo * GCo * BCo * ECo * Co #A VERIFIER
-rCo <- 3 #fixé arbitrairement  
-roCo <- 0
-  
+rCo <- 0.6 #fixé arbitrairement/ équivaut à lambda 1.82
+roCo<- 0.6
+
 ##################################################
 ###############    5. Rats rates   ###############
 ##################################################
@@ -183,19 +183,11 @@ KR  <- 1000000
 #GR  <- 5
 #ER  <-  2
 #rR  <- aR * GR * BR * ER * R #A VERIFIER
-rR <- 6  
-roR <- 0  
+rR <-  5
+roR <- 0
   
 prCoR <- 10
 prCHR <- 251 #en considérant une pelote par nuit et occurence de rat 0.69
   
-
-##################################################
-###############   6. Prey values   ###############
-##################################################
-
-#roies_Co <- PBJ + PBR +  Au + I + Pl + Tor + R
-#Proies_Ch <- PBJ + PBR + ABJ + Au + I + Pl + Sc + R
-#Proies_R  <- PBJ + PBR + Au + I + Pl + Sc +  PCH 
 
 
