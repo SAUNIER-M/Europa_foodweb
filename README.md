@@ -26,22 +26,22 @@ This project follows a simple structure:
 
 - output/       ➜ *Model outputs and generated plots*
 
-    ├─ Scenarii_relalistic/ ➜ Output with realistic parameters
+    ├─ Scenarii_relalistic/ ➜ *Output with realistic parameters*
   
     ├─ Sensibility_actions/
 
-        ├─ Raterad_1shotcorvus_reg ➜ Output for rat eradication and one control action to
-        reduce pied crow at 50 pairs and then annual regulation from 0.1 to 0.8
+        ├─ Raterad_1shotcorvus_reg ➜ *Output for rat eradication and one control action to
+        reduce pied crow at 50 pairs and then annual regulation from 0.1 to 0.8*
   
-        ├─ Reg_Crow  ➜ Output for pied crow annual regulation from 0 to 1
+        ├─ Reg_Crow  ➜ *Output for pied crow annual regulation from 0 to 1*
   
-        ├─ Reg_Rats ➜ Output for pied crow annual regulation from 0 to 6
+        ├─ Reg_Rats ➜ *Output for pied crow annual regulation from 0 to 6*
   
-        ├─ Reg_Rats_Crow ➜ Output for pied crow annual regulation from 0 to 6 and rat eradication or regulation
+        ├─ Reg_Rats_Crow ➜ *Output for pied crow annual regulation from 0 to 6 and rat eradication or regulation*
   
-    ├─ Sensibility_crow/ ➜ Output for several population growth of pied crow (-1 to 1)
+    ├─ Sensibility_crow/ ➜ *Output for several population growth of pied crow (-1 to 1)*
   
-    ├─ Sensibility_owl/  ➜ Output for several estimates parameter for barn owl
+    ├─ Sensibility_owl/  ➜ *Output for several estimates parameter for barn owl*
 
        ├─ ECH/
        ├─ GCH/
@@ -49,9 +49,9 @@ This project follows a simple structure:
        ├─ PHIJCH/
        ├─ SRCH/
   
-    ├─ Sensibility_rats/ ➜ Output for several population growth of rats (-1 to 6)
-      ├─ Pred_crow2/  ➜ For rate predation of pied crow on rats equal to 2
-      ├─ Pred_crow10/ ➜ For rate predation of pied crow on rats equal to 10
+    ├─ Sensibility_rats/ ➜ *Output for several population growth of rats (-1 to 6)*
+      ├─ Pred_crow2/  ➜ *For rate predation of pied crow on rats equal to 2*
+      ├─ Pred_crow10/ ➜ *For rate predation of pied crow on rats equal to 10*
 
 - R/
   
@@ -61,9 +61,10 @@ This project follows a simple structure:
 
     ├─ Var.R  ➜ *Script specifying the initial conditions for each variable*
 
+    ├─ Sensitivity_barnowl.R ➜ *Script to estimate barn owls lambda sensitivity to the variation of parameters*
 - README.md
 
-- Scenarii.xlsx ➜ Details of scenario and setting parameters
+- Scenarii.xlsx ➜ *Details of scenarii and setting parameters*
 
 
 ## 🔢 Variable Abbreviations and Meanings
