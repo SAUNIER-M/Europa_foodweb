@@ -35,7 +35,7 @@ JCH1 <- 20
 JCH2 <- 30
 ACH  <- 40
 
-Co   <- 200 #800
+Co   <- 200 #500
 
 R    <- 45500
 
@@ -140,14 +140,14 @@ KCH  <- 400
 
 SRCH <- 1
 aCH  <- 0.5
-GCH  <- 8
-ECH  <- 2
+GCH  <- 1
+ECH  <- 1.3
 FCH  <- aCH * GCH * ECH 
 
 
 phiJCH1 <- 0.60
 phiJCH2 <- phiJCH1
-phiACH  <- 0.95
+phiACH  <- 0.66
 phiYCH  <- SRCH 
 
 

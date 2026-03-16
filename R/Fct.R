@@ -4,7 +4,7 @@ europa_fct <- function(t, y, parms) {
   eps <- 1e-6  # To avoid null denominator 
   with(as.list(c(y, parms)), { 
     # -----------------------------
-    # Calcul dynamique des proies
+    # Dynamic estimation of preys
     # -----------------------------
     
     Proies_Co <- YBJ + JBJ1 + JBJ2 + JBJ3 + JBJ4 + JBJ5 + JBJ6 + ABJ +
@@ -69,8 +69,6 @@ europa_fct <- function(t, y, parms) {
     dJCH2 <- phiJCH1 * JCH1 - muJCH2 * JCH2 - phiJCH2 * JCH2
     
     dACH <- phiJCH2 * JCH2 - muACH * ACH
-    
-    
     
     
     # Pied crows
