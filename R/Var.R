@@ -35,7 +35,7 @@ JCH1 <- 20
 JCH2 <- 30
 ACH  <- 40
 
-Co   <- 200 #500
+Co   <- 200
 
 R    <- 45500
 
@@ -138,14 +138,14 @@ prCHABR <- 0
 
 KCH  <- 400
 
-SRCH <- 1
+SRCH <- 0.8
 aCH  <- 0.5
-GCH  <- 1
-ECH  <- 1.3
+GCH  <- 6
+ECH  <- 1
 FCH  <- aCH * GCH * ECH 
 
 
-phiJCH1 <- 0.60
+phiJCH1 <- 0.5
 phiJCH2 <- phiJCH1
 phiACH  <- 0.66
 phiYCH  <- SRCH 
@@ -156,7 +156,7 @@ muJCH1 <- 1 - phiJCH1
 muJCH2 <- 1 - phiJCH2
 muACH  <- 1 - phiACH
 
-prRPCH <- 0
+prRPCH <- 0 
   
   
 ##################################################
@@ -170,7 +170,7 @@ KCo  <- 100000
 #GCo  <- 5
 #rCo  <- aCo * GCo * BCo * ECo * Co #A VERIFIER
 rCo <- 0.6 #fixé arbitrairement/ équivaut à lambda 1.82
-roCo<- 0.6
+roCo<- 0 #0.6
 
 ##################################################
 ###############    5. Rats rates   ###############
@@ -187,7 +187,7 @@ rR <-  5
 roR <- 0
   
 prCoR <- 10
-prCHR <- 251 #en considérant une pelote par nuit et occurence de rat 0.69
+prCHR <- 251 #en considérant une pelote par nuit et occurence de rat 0.69 cf pelotes
   
 
 
