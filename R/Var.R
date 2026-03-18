@@ -141,7 +141,8 @@ KCH  <- 400
 SRCH <- 0.8
 aCH  <- 0.5
 GCH  <- 6
-ECH  <- 1
+
+#ECH  <- 0.5
 FCH  <- aCH * GCH * ECH 
 
 

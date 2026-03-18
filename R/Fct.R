@@ -81,13 +81,13 @@ europa_fct <- function(t, y, parms) {
       prCoR * Co * (R / (Proies_Co)) 
     
     
-    list(c(dYBJ = dYBJ, dJBJ1 = dJBJ1, dJBJ2 = dJBJ2, dJBJ3 = dJBJ3, #remplacement de DPBJ par DYBJ
-           dJBJ4 = dJBJ4, dJBJ5 = dJBJ5, dJBJ6 = dJBJ6, dABJ = dABJ, 
-           dYBR = dYBR, dJBR1 = dJBR1, dJBR2 = dJBR2, dJBR3 = dJBR3,
-           dJBR4 = dJBR4, dJBR5 = dJBR5, dJBR6 = dJBR6, dABR = dABR,
-           dYCH = dYCH, dJCH1 = dJCH1, dJCH2 = dJCH2, dACH = dACH, #remplacer dpch par dych
-           dCo = dCO, dR = dR))
+ return(list(c(
+    dYBJ=dYBJ, dJBJ1=dJBJ1, dJBJ2=dJBJ2, dJBJ3=dJBJ3,
+    dJBJ4=dJBJ4, dJBJ5=dJBJ5, dJBJ6=dJBJ6, dABJ=dABJ,
+    dYBR=dYBR, dJBR1=dJBR1, dJBR2=dJBR2, dJBR3=dJBR3,
+    dJBR4=dJBR4, dJBR5=dJBR5, dJBR6=dJBR6, dABR=dABR,
+    dYCH=dYCH, dJCH1=dJCH1, dJCH2=dJCH2, dACH=dACH,
+    dCo=dCO, dR=dR
+  )))
   })
 }
-
-

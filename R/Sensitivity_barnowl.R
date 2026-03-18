@@ -11,11 +11,11 @@ source("R/Var.R")
 ########## DEF PARAMETERS ################
 #-----------------------------------------------
 
-SRCH_seq   <- seq(0.2, 1, by = 0.2)
-GCH_seq    <- seq(3, 8, by = 1)
-ECH_seq    <- seq(1, 2, by = 0.5)
-phiJCH_seq <- seq(0.2, 0.6, by = 0.2)
-phiACH_seq <- seq(0.4, 0.96, by = 0.2)
+#SRCH_seq   <- seq(0.2, 1, by = 0.2)
+#GCH_seq    <- seq(3, 8, by = 1)
+ECH_seq    <- seq(1, 2, by = 0.2)
+#phiJCH_seq <- seq(0.2, 0.6, by = 0.2)
+#phiACH_seq <- seq(0.4, 0.96, by = 0.2)
 
 param_grid <- expand.grid(
   SRCH = SRCH_seq,
