@@ -35,16 +35,16 @@ JCH1 <- 20
 JCH2 <- 30
 ACH  <- 40
 
-Co   <- 200
+Co   <- 300
 
 R    <- 45500
 
 #Secondary species
-Au <- 1000
-I <- 1000
-Pl <- 1000
-Sc <- 300
-Tor <- 1000
+Au <- 10
+I <- 10
+Pl <- 10
+Sc <- 10
+Tor <- 50
 
 
 
@@ -82,12 +82,6 @@ muJBJ6 <- 1 - phiJBJ6
 muABJ  <- 1 - phiABJ
 
 
-prCoPBJ <- 10
-prRPBJ  <- 20
-prCHPBJ <- 2
-prCHABJ <- 1
-
-
 
 
 ###################################################
@@ -123,12 +117,6 @@ muJBR6 <- 1 - phiJBR6
 muABR  <- 1 - phiABR
 
 
-prCoPBR <- 15
-prRPBR  <- 30
-prCHPBR <- 5
-prCHABR <- 0
-
-
   
 ##################################################
 #############   3. Barn owls rates   #############
@@ -155,13 +143,12 @@ muJCH1 <- 1 - phiJCH1
 muJCH2 <- 1 - phiJCH2
 muACH  <- 1 - phiACH
 
-prRPCH <- 0 
-  
+
   
 ##################################################
 #############   4. Pied crow rates  ##############
 ##################################################   
-KCo  <- 100000
+KCo  <- 5000
   
 #aCo  <- 0.5
 #BCo  <- 1
@@ -175,18 +162,29 @@ roCo<- 0 #0.6
 ###############    5. Rats rates   ###############
 ##################################################
 
-KR  <- 1000000
+KR  <- 100000
 
 #aR  <- 0.5  
 #BR  <- 1
 #GR  <- 5
 #ER  <-  2
 #rR  <- aR * GR * BR * ER * R #A VERIFIER
-rR <-  5
+rR <-  4 #5
 roR <- 0
-  
-prCoR <- 10
-prCHR <- 251 #en considérant une pelote par nuit et occurence de rat 0.69 cf pelotes
-  
 
+
+##################################################
+############ 6. Predation rates ##################
+##################################################
+prCoPBJ <- 0.05
+prRPBJ <- 0.05
+prCHPBJ <- 0.01
+prCHABJ <- 0.002
+prCoPBR <- 0.0
+prRPBR <- 0.05
+prCHPBR <- 0
+prCHABR <- 0
+prRPCH <- 0.0001
+prCHR <- 250
+prCoR <- 0 
 

@@ -9,105 +9,106 @@ yini <- c(
   YBJ=80, JBJ1=70, JBJ2=60, JBJ3=50, JBJ4=40, JBJ5=30, JBJ6=25, ABJ=200,
   YBR=800, JBR1=700, JBR2=600, JBR3=500, JBR4=400, JBR5=300, JBR6=250, ABR=2000,
   YCH=40, JCH1=20, JCH2=30, ACH=40,
-  Co=200, R=45500
+  Co=300, R=45500
 )
 
-Au <- 1000
-I <- 1000
-Pl <- 1000
-Sc <- 300
-Tor <- 1000
+Au <- 10
+I <- 10
+Pl <- 10
+Sc <- 10
+Tor <- 50
 
 
 
 # Tropicbirds
-FBJ <- 1.61*0.5
+alpha <- 0.5
 KBJ <- 50000
-phiYBJ <- 0.5
+phiYBJ <- 0.63 #in Maldive Sebastian Steibl and James Russell paper in prep
 phiJBJ1 <- 0.79
 phiJBJ2 <- 0.79
-phiJBJ3 <- 0.89
-phiJBJ4 <- 0.89
-phiJBJ5 <- 0.89
-phiJBJ6 <- 0.89
-phiABJ <- 0.89
+phiJBJ3 <- 0.92
+phiJBJ4 <- 0.92
+phiJBJ5 <- 0.92
+phiJBJ6 <- 0.92
+phiABJ <- 0.92 #from Pouhou islet, Mayotte, pers.com
+FBJ <- 1.61 * alpha #from catry et al 2009 Aride island
 
-muYBJ <- 1-phiYBJ
-muJBJ1 <- 1-phiJBJ1
-muJBJ2 <- 1-phiJBJ2
-muJBJ3 <- 1-phiJBJ3
-muJBJ4 <- 1-phiJBJ4
-muJBJ5 <- 1-phiJBJ5
-muJBJ6 <- 1-phiJBJ6
-muABJ <- 1-phiABJ
+muYBJ <- 1 - phiYBJ
+muJBJ1 <- 1 - phiJBJ1
+muJBJ2 <- 1 - phiJBJ2
+muJBJ3 <- 1 - phiJBJ3
+muJBJ4 <- 1 - phiJBJ4
+muJBJ5 <- 1 - phiJBJ5
+muJBJ6 <- 1 - phiJBJ6
+muABJ <- 1 - phiABJ
 
-KBJ   <- 50000
 
-FBR <- 1*0.5
+
 KBR <- 50000
-phiYBR <- 0.79
+phiYBR <- 0.79 # from Le Corre in Europa phd disertation
 phiJBR1 <- 0.79
 phiJBR2 <- 0.79
 phiJBR3 <- 0.89
 phiJBR4 <- 0.89
 phiJBR5 <- 0.89
-phiJBR6 <- 0.89
-muYBR <- 1-phiYBR
-muJBR1 <- 1-phiJBR1
-muJBR2 <- 1-phiJBR2
-muJBR3 <- 1-phiJBR3
-muJBR4 <- 1-phiJBR4
-muJBR5 <- 1-phiJBR5
-muJBR6 <- 1-phiJBR6
-muABR <- 1-0.89
+phiJBR6 <- 0.89 #Review Egerton et al 2022 from Doherty et al 2004 - Johnston atoll
+muYBR <- 1 - phiYBR
+muJBR1 <- 1 - phiJBR1
+muJBR2 <- 1 - phiJBR2
+muJBR3 <- 1 - phiJBR3
+muJBR4 <- 1 - phiJBR4
+muJBR5 <- 1 - phiJBR5
+muJBR6 <- 1 - phiJBR6
+muABR <- 1 - 0.89
 
-KBR  <- 50000
+FBR <- 1 * alpha 
 
 
 # Barn owls
-SRCH_base <- 0.8
+SRCH_base <- 0.27 #success probability of each egg (Mayotte Steven et 1999)
 aCH <- 0.5
-GCH_base <- 6
+GCH_base <- 6 #seen in Europa
 ECH_base <- 1.2
-phiJCH1_base <- 0.5
-phiJCH2_base <- 0.5
-phiACH_base <- 0.66
+FCH_base <- aCH * GCH_base * ECH_base
+phiJCH_base <- 0.29 #from Altwegg in Europe
+phiACH_base <- 0.57
 phiYCH_base <- SRCH_base
-muYCH_base <- 1-phiYCH_base
-muJCH1_base <- 1-phiJCH1_base
-muJCH2_base <- 1-phiJCH2_base
-muACH_base <- 1-phiACH_base
+muYCH_base <- 1 - phiYCH_base
+muJCH_base <- 1 - phiJCH_base
+muACH_base <- 1 - phiACH_base
 
 KCH <- 400
 
 # Crows & rats
-rCo_base <- 0.6
-KCo <- 100000
+rCo_base <- 0.6 #lambda = 1.82
+KCo <- 5000
 roCo_base <- 0
-rR_base <- 5
-KR <- 1000000
+
+rR_base <- 1.5 #4 #from Dumont et al 2010
+KR <- 100000
 roR_base <- 0
-prCHR <- 251  #une pelote par nuit. rat dans 69% des pelotes
-prCoR <- 10
+
 
 # Predation
-prCoPBJ <- 2
-prRPBJ <- 5
-prCHPBJ <- 2
-prCHABJ <- 0.01
-prCoPBR <- 5
-prRPBR <- 10
-prCHPBR <- 5
+prCoPBJ <- 0.5
+prRPBJ <- 0.05
+prCHPBJ <- 0.01
+prCHABJ <- 0.002
+prCoPBR <- 0.5
+prRPBR <- 0.1
+prCHPBR <- 0
 prCHABR <- 0
-prRPCH <- 0
-
+prRPCH <- 0.000001
+prCHR <- 250
+prCoR <- 0 
 
 
 
 # -----------------------------
 # Fontction Europa
 # -----------------------------
-times <- seq(0,20,by=1) #to estimate only during the 20 first years (before K)
+times <- seq(0,40,by=1) #for 20 years to avoid K effect
+
 europa_fct_safe <- function(t, y, parms){
   y[y<0] <- 0 #to avoid negative value
   eps <- 1e-6 #to avoid null denominator
@@ -156,9 +157,9 @@ europa_fct_safe <- function(t, y, parms){
     dYCH <- FCH * ACH *(1- ACH / KCH) - phiYCH * YCH - 
       muYCH * YCH - prRPCH * R * (YCH / Proies_R)
     
-    dJCH1 <- phiYCH * YCH - muJCH1 * JCH1 - phiJCH1 * JCH1
-    dJCH2 <- phiJCH1 * JCH1 - muJCH2 * JCH2 - phiJCH2 * JCH2
-    dACH <- phiJCH2 * JCH2 - muACH * ACH
+    dJCH1 <- phiYCH * YCH - muJCH1 * JCH1 - phiJCH * JCH1
+    dJCH2 <- phiJCH * JCH1 - muJCH2 * JCH2 - phiJCH * JCH2
+    dACH <- phiJCH * JCH2 - muACH * ACH
     
     # Pied crws and rats
     dCO <- rCo * Co * (1 - Co / KCo) - roCo * Co
@@ -189,15 +190,15 @@ calc_lambda <- function(time,pop){
 # Estimation lambda selon variation de param_list
 # --------------------------------------------------
 param_list <- list(
-  ECH=seq(0,2,0.01),
-  SRCH=seq(0,1,0.01),
-  GCH=seq(1,8,1),
-  phiJCH=seq(0.1,1,0.1),
-  phiACH=seq(0.1,1,0.1),
-  rR=seq(1,12,1),
-  rCo=seq(0,1,0.1),
-  roCo=seq(0,1,0.1),
-  roR=seq(1,120,1)
+  ECH = seq(0,2,0.1),
+  SRCH = seq(0,1,0.1),
+  GCH = seq(1,8,1),
+  phiJCH = seq(0.1,1,0.1),
+  phiACH = seq(0.1,1,0.1),
+  rR = seq(0,1,0.1),
+  rCo = seq(0,1,0.1),
+  roCo = seq(0,1,0.1),
+  roR = seq(0,1.5,0.1)
 )
 
 dir.create(here("output"), showWarnings = FALSE)
@@ -213,7 +214,7 @@ for(param_name in names(param_list)){
       FBJ = FBJ, KBJ = KBJ, FBR = FBR, KBR = KBR,
       FCH = aCH * GCH_base * ECH_base, KCH = KCH,
       phiYCH = phiYCH_base, muYCH = muYCH_base,
-      phiJCH1 = phiJCH1_base, phiJCH2 = phiJCH2_base,
+      phiJCH = phiJCH_base, phiJCH = phiJCH_base,
       muJCH1 = muJCH1_base, muJCH2 = muJCH2_base,
       phiACH = phiACH_base, muACH = muACH_base,
       rR = rR_base, KR = KR, roR = roR_base,
@@ -224,10 +225,14 @@ for(param_name in names(param_list)){
       prRPCH = prRPCH
     )
     
-    # Impact des paramètres modifier pour l'analyse de sensibilité, sur les autres parametres
-    if(param_name == "ECH"){parms$FCH <- aCH * GCH_base * val } #ECH est compris dans le calcule de FCH
-    if(param_name == "SRCH"){ parms$phiYCH <- val; parms$muYCH <- 1-val } #SCH est compris dans le calcule de phiYCH et muYCH
-    if(param_name == "rR"){ parms$rR <- val } #les paramètres qui suivent sont propres
+    # Sensibilité
+    if(param_name == "ECH"){parms$FCH <- aCH * GCH_base * val }
+    if(param_name == "SRCH"){ parms$phiYCH <- val; parms$muYCH <- 1-val }
+    if(param_name == "phiACH"){ parms$phiACH <- val; parms$muACH <- 1-val }
+    if(param_name == "phiJCH"){ parms$phiJCH <- val; parms$phiJCH <- 1-val }
+    if(param_name == "GCH"){ parms$GCH <- val; parms$FCH <- aCH * GCH_base * val}
+    
+    if(param_name == "rR"){ parms$rR <- val }
     if(param_name == "rCo"){ parms$rCo <- val }
     if(param_name == "roR"){ parms$roR <- val }
     if(param_name == "roCo"){ parms$roCo <- val }
@@ -240,10 +245,11 @@ for(param_name in names(param_list)){
     results$lambda_BR[i] <- calc_lambda(out$time, out$YBR + out$JBR1 + out$JBR2 + out$JBR3 + out$JBR4 + out$JBR5 + out$JBR6 + out$ABR)
     results$lambda_R[i] <- calc_lambda(out$time, out$R)
     results$lambda_Co[i] <- calc_lambda(out$time, out$Co)
+  }
   
-    #Output
-    write.csv(results, here("output", paste0("lambda_",param_name,".csv")), row.names=FALSE)
-    
+  # OUTPUT 
+  write.csv(results, here("output", paste0("lambda_",param_name,".csv")), row.names=FALSE)
+  
     p_CH <- ggplot(results, aes(x=val,y=lambda_CH)) +
       geom_line() + geom_point() +
       geom_hline(yintercept=1, linetype="dashed",color="red") +
@@ -265,7 +271,7 @@ for(param_name in names(param_list)){
      geom_line() + geom_point() +
      geom_hline(yintercept=1, linetype="dashed",color="red") +
      labs(x=param_name, y="λ BR",
-       title=paste("Sensibilité λ BRselon", param_name)) +
+       title=paste("Sensibilité λ BR selon", param_name)) +
      theme_bw()
     ggsave(here("output",paste0("lambda_BR_",param_name,".png")), p_BR, width=8, height=6, dpi=300)
 
@@ -294,8 +300,8 @@ for(param_name in names(param_list)){
 # ---------------------------------------------------------------------
 #  Sensibilité combinée roCo × roR (isolignes) pour WTTB WTTR et Barn owls
 # ---------------------------------------------------------------------
-roCo_vals <- seq(0, 1, 0.01)
-roR_vals <- seq(1, 120, 5)
+roCo_vals <- seq(0, 0.6, 0.1) 
+roR_vals <- seq(1, 1.5, 0.1)
 results_comb <- expand.grid(roCo = roCo_vals, roR = roR_vals)
 results_comb$lambda_PBJ <- NA
 results_comb$lambda_PBR <- NA
@@ -317,7 +323,7 @@ for(i in 1:nrow(results_comb)){
     
     FCH = aCH * GCH_base * ECH_base, KCH = KCH,
     muYCH = muYCH_base, muJCH1 = muJCH1_base, muJCH2 = muJCH2_base, muACH = muACH_base,
-    phiYCH = phiYCH_base, phiJCH1 = phiJCH1_base, phiJCH2 = phiJCH2_base, phiACH = phiACH_base,
+    phiYCH = phiYCH_base, phiJCH = phiJCH_base, phiJCH = phiJCH_base, phiACH = phiACH_base,
     
     rR = rR_base, KR = KR, roR = results_comb$roR[i],
     rCo = rCo_base, KCo = KCo, roCo = results_comb$roCo[i],
@@ -344,7 +350,7 @@ write.csv(results_comb, here("output","lambda_roCo_roR_combined.csv"), row.names
 p_BJ_iso <- ggplot(results_comb, aes(x=roCo, y=roR, z=lambda_PBJ)) +
   geom_contour(color="black") +
   geom_text(stat="contour", aes(label=..level..), size=3) +
-  labs(x="roCo (c", y="roR ", title="Isolignes λ BJ") +
+  labs(x="roCo", y="roR ", title="Isolignes λ BJ") +
   theme_minimal()
 ggsave(here("output","isoligne_BJ_roR_roCo.png"), p_BJ_iso, width=8, height=6, dpi=300)
 
