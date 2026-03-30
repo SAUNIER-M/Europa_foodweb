@@ -70,8 +70,8 @@ aCH <- 0.5
 GCH_base <- 6 #seen in Europa
 ECH_base <- 1.2
 FCH_base <- aCH * GCH_base * ECH_base
-phiJCH_base <- 0.29 #from Altwegg in Europe
-phiACH_base <- 0.57
+phiJCH_base <- 0.5 
+phiACH_base <- 0.66
 phiYCH_base <- SRCH_base
 muYCH_base <- 1 - phiYCH_base
 muJCH_base <- 1 - phiJCH_base
@@ -157,8 +157,8 @@ europa_fct_safe <- function(t, y, parms){
     dYCH <- FCH * ACH *(1- ACH / KCH) - phiYCH * YCH - 
       muYCH * YCH - prRPCH * R * (YCH / Proies_R)
     
-    dJCH1 <- phiYCH * YCH - muJCH1 * JCH1 - phiJCH * JCH1
-    dJCH2 <- phiJCH * JCH1 - muJCH2 * JCH2 - phiJCH * JCH2
+    dJCH1 <- phiYCH * YCH - muJCH * JCH1 - phiJCH * JCH1
+    dJCH2 <- phiJCH * JCH1 - muJCH * JCH2 - phiJCH * JCH2
     dACH <- phiJCH * JCH2 - muACH * ACH
     
     # Pied crws and rats
@@ -214,8 +214,7 @@ for(param_name in names(param_list)){
       FBJ = FBJ, KBJ = KBJ, FBR = FBR, KBR = KBR,
       FCH = aCH * GCH_base * ECH_base, KCH = KCH,
       phiYCH = phiYCH_base, muYCH = muYCH_base,
-      phiJCH = phiJCH_base, phiJCH = phiJCH_base,
-      muJCH1 = muJCH1_base, muJCH2 = muJCH2_base,
+      phiJCH = phiJCH_base,muJCH = muJCH_base, 
       phiACH = phiACH_base, muACH = muACH_base,
       rR = rR_base, KR = KR, roR = roR_base,
       rCo = rCo_base, KCo = KCo, roCo = roCo_base,
@@ -229,8 +228,8 @@ for(param_name in names(param_list)){
     if(param_name == "ECH"){parms$FCH <- aCH * GCH_base * val }
     if(param_name == "SRCH"){ parms$phiYCH <- val; parms$muYCH <- 1-val }
     if(param_name == "phiACH"){ parms$phiACH <- val; parms$muACH <- 1-val }
-    if(param_name == "phiJCH"){ parms$phiJCH <- val; parms$phiJCH <- 1-val }
-    if(param_name == "GCH"){ parms$GCH <- val; parms$FCH <- aCH * GCH_base * val}
+    if(param_name == "phiJCH"){ parms$phiJCH <- val; parms$muJCH <- 1-val }
+    if(param_name == "GCH"){ parms$GCH <- val; parms$FCH <- aCH * ECH_base * val}
     
     if(param_name == "rR"){ parms$rR <- val }
     if(param_name == "rCo"){ parms$rCo <- val }
@@ -322,8 +321,8 @@ for(i in 1:nrow(results_comb)){
     phiJBR4 = phiJBR4, phiJBR5 = phiJBR5, phiJBR6 = phiJBR6,
     
     FCH = aCH * GCH_base * ECH_base, KCH = KCH,
-    muYCH = muYCH_base, muJCH1 = muJCH1_base, muJCH2 = muJCH2_base, muACH = muACH_base,
-    phiYCH = phiYCH_base, phiJCH = phiJCH_base, phiJCH = phiJCH_base, phiACH = phiACH_base,
+    muYCH = muYCH_base, muJCH = muJCH_base, muACH = muACH_base,
+    phiYCH = phiYCH_base, phiJCH = phiJCH_base, phiACH = phiACH_base,
     
     rR = rR_base, KR = KR, roR = results_comb$roR[i],
     rCo = rCo_base, KCo = KCo, roCo = results_comb$roCo[i],
@@ -372,3 +371,74 @@ p_CH_iso<- ggplot(results_comb, aes(x=roCo, y=roR, z=lambda_CH)) +
 ggsave(here("output","isoligne_CH_roR_roCo.png"), p_CH_iso, width=8, height=6, dpi=300)
 
 
+
+
+
+#------------------------------------------
+# Calcul de l'elasticité
+#------------------------------------------
+
+# Fonction de simulation pour croissance de toutes les pop
+run_model <- function(parms){
+  out <- ode(y = yini, times = times, func = europa_fct_safe, parms = parms)
+  out <- as.data.frame(out)
+  
+  return(list(
+    lambda_R  = calc_lambda(out$time, out$R),
+    lambda_Co = calc_lambda(out$time, out$Co),
+    lambda_CH = calc_lambda(out$time, out$YCH + out$JCH1 + out$JCH2 + out$ACH),
+    lambda_BJ = calc_lambda(out$time, out$YBJ + out$JBJ1 + out$JBJ2 + out$JBJ3 + out$JBJ4 + out$JBJ5 + out$JBJ6 + out$ABJ),
+    lambda_BR = calc_lambda(out$time, out$YBR + out$JBR1 + out$JBR2 + out$JBR3 + out$JBR4 + out$JBR5 + out$JBR6 + out$ABR)
+  ))
+}
+
+# tous les paramètres
+base_parms <- list(
+  FBJ=FBJ, KBJ=KBJ, FBR=FBR, KBR=KBR,
+  FCH=aCH * GCH_base * ECH_base, KCH=KCH,
+  phiYCH=phiYCH_base, muYCH=muYCH_base,
+  phiJCH=phiJCH_base, muJCH=muJCH_base,
+  phiACH=phiACH_base, muACH=muACH_base,
+  rR=rR_base, KR=KR, roR=roR_base,
+  rCo=rCo_base, KCo=KCo, roCo=roCo_base,
+  prCHR=prCHR, prCoR=prCoR,
+  prCoPBJ=prCoPBJ, prRPBJ=prRPBJ, prCHPBJ=prCHPBJ, prCHABJ=prCHABJ,
+  prCoPBR=prCoPBR, prRPBR=prRPBR, prCHPBR=prCHPBR, prCHABR=prCHABR,
+  prRPCH=prRPCH
+)
+
+# paramètres pour lesquels l'elasticité est testée
+params_to_test <- c(
+  "FCH","phiYCH","phiJCH","phiACH",
+  "rR","rCo","roR","roCo",
+  "prCHR","prCoR",
+  "prCoPBJ","prRPBJ","prCHPBJ",
+  "prCoPBR","prRPBR","prCHPBR"
+)
+
+#calcul de l'elasticité : delta <- 0.01 => 1% variation
+
+sens_results <- data.frame()
+
+base_out <- run_model(base_parms)
+
+for(p in params_to_test){
+  
+  parms_up <- base_parms
+  
+  parms_up[[p]] <- base_parms[[p]] * (1 + delta)
+  
+  out_up <- run_model(parms_up)
+
+  sens <- data.frame(
+    param = p,
+    
+    S_R  = ((out_up$lambda_R  - base_out$lambda_R ) / base_out$lambda_R ) / delta,
+    S_Co = ((out_up$lambda_Co - base_out$lambda_Co) / base_out$lambda_Co) / delta,
+    S_CH = ((out_up$lambda_CH - base_out$lambda_CH) / base_out$lambda_CH) / delta,
+    S_BJ = ((out_up$lambda_BJ - base_out$lambda_BJ) / base_out$lambda_BJ) / delta,
+    S_BR = ((out_up$lambda_BR - base_out$lambda_BR) / base_out$lambda_BR) / delta
+  )
+  
+  sens_results <- rbind(sens_results, sens)
+}
